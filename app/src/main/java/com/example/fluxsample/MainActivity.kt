@@ -23,7 +23,7 @@ import com.example.fluxsample.flux.MainViewModel
 import com.example.fluxsample.flux.common.Dispatcher
 import com.example.fluxsample.flux.fetchweather.FetchWeatherActionCreator
 import com.example.fluxsample.flux.fetchweather.FetchWeatherRepositoryImpl
-import com.example.fluxsample.flux.fetchweather.WeatherUiState
+import com.example.fluxsample.flux.fetchweather.FetchWeatherUiState
 import com.example.fluxsample.ui.common.IndeterminateCircularIndicator
 import com.example.fluxsample.ui.theme.FluxSampleTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -85,24 +85,24 @@ fun FluxSampleApp(
         Spacer(modifier = Modifier.padding(50.dp))
 
         when (weatherStore.uiState.value) {
-            is WeatherUiState.Initial -> {
+            is FetchWeatherUiState.Initial -> {
                 Text(
                     text = "まだ天気を取得していません",
                     fontSize = 25.sp,
                 )
             }
-            is WeatherUiState.Loading -> {
+            is FetchWeatherUiState.Loading -> {
                 IndeterminateCircularIndicator()
             }
-            is WeatherUiState.Success -> {
+            is FetchWeatherUiState.Success -> {
                 Text(
-                    text = "東京の現在の天気：${(weatherStore.uiState.value as WeatherUiState.Success).weatherDescription}",
+                    text = "東京の現在の天気：${(weatherStore.uiState.value as FetchWeatherUiState.Success).weatherDescription}",
                     fontSize = 30.sp,
                 )
             }
-            is WeatherUiState.Failure -> {
+            is FetchWeatherUiState.Failure -> {
                 Text(
-                    text = (weatherStore.uiState.value as WeatherUiState.Failure).errorMessage,
+                    text = (weatherStore.uiState.value as FetchWeatherUiState.Failure).errorMessage,
                     fontSize = 30.sp,
                 )
             }

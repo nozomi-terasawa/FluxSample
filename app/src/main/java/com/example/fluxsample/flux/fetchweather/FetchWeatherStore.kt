@@ -7,26 +7,26 @@ import com.example.fluxsample.flux.common.Action
 import com.example.fluxsample.flux.common.Dispatcher
 import com.example.fluxsample.flux.common.Store
 
-class WeatherStore(
+class FetchWeatherStore(
     dispatcher: Dispatcher,
 ) : Store(dispatcher) {
-    private var _uiState: MutableState<WeatherUiState> = mutableStateOf(WeatherUiState.Initial)
-    val uiState: State<WeatherUiState>
+    private var _uiState: MutableState<FetchWeatherUiState> = mutableStateOf(FetchWeatherUiState.Initial)
+    val uiState: State<FetchWeatherUiState>
         get() = _uiState
 
     override fun onDispatch(payload: Action) {
         when (payload) {
             is FetchWeatherAction.Initial -> {
-                _uiState.value = WeatherUiState.Initial
+                _uiState.value = FetchWeatherUiState.Initial
             }
             is FetchWeatherAction.Loading -> {
-                _uiState.value = WeatherUiState.Loading
+                _uiState.value = FetchWeatherUiState.Loading
             }
             is FetchWeatherAction.Success -> {
-                _uiState.value = WeatherUiState.Success(payload.payload)
+                _uiState.value = FetchWeatherUiState.Success(payload.payload)
             }
             is FetchWeatherAction.Failure -> {
-                _uiState.value = WeatherUiState.Failure(payload.payload)
+                _uiState.value = FetchWeatherUiState.Failure(payload.payload)
             }
         }
     }
