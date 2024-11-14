@@ -77,6 +77,8 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.1")
     // viewmodel
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.6")
+    // navigation
+    implementation("androidx.navigation:navigation-compose:2.8.4")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
