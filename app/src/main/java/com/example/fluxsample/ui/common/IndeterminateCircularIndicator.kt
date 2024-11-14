@@ -33,8 +33,8 @@ fun IndeterminateCircularIndicator() {
 fun IndeterminateCircularIndicatorPreview() {
     Column(
         modifier = Modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         IndeterminateCircularIndicator()
     }

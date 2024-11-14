@@ -33,9 +33,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     @Inject lateinit var dispatcher: Dispatcher
-
     @Inject lateinit var fetchWeatherRepository: FetchWeatherRepositoryImpl
-
     @Inject lateinit var weatherActionCreator: FetchWeatherActionCreator
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -93,7 +91,6 @@ fun FluxSampleApp(
                     fontSize = 25.sp,
                 )
             }
-
             is WeatherUiState.Loading -> {
                 IndeterminateCircularIndicator()
             }
